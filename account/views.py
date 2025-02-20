@@ -29,7 +29,7 @@ class SignUpView(View):
             user.first_name = cd['first_name']
             user.last_name = cd['last_name']
             user.save()
-            messages.success(request, 'You have successfully sign up.', 'info')
+            messages.success(request, 'You have successfully signed up.', 'info')
             return redirect('account:signin')
         return render(request, self.template_name, {'form' : form})
 
@@ -56,7 +56,7 @@ class SignInView(View):
 
             if user is not None:
                 login(request, user)
-                messages.success(request, 'You have successfully sign in.', 'info')
+                messages.success(request, 'You have successfully signed in.', 'info')
                 return redirect('home')
             messages.error(request, 'Username or Password is wrong.', 'danger')
             return redirect('account:signin')
@@ -67,7 +67,7 @@ def signout_view(request):
     if not request.user.is_authenticated:
         return redirect('home')
     logout(request)
-    messages.success(request, 'You have successfully sign out.', 'info')
+    messages.success(request, 'You have successfully signed out.', 'info')
     return redirect('home')
 
 
@@ -96,7 +96,7 @@ def delete_account_view(request, username):
         messages.error(request, 'You can`t delete this user.', 'danger')
         return redirect('account:profile', user.username)
     user.delete()
-    messages.success(request, 'You have successfully delete the account.', 'info')
+    messages.success(request, 'You have successfully deleted the account.', 'info')
     return redirect('home')
 
 
@@ -133,6 +133,6 @@ class UpdateProfileView(View):
             user.first_name = cd['first_name']
             user.last_name = cd['last_name']
             user.save()
-            messages.success(request, 'You have successfully update the profile.', 'info')
+            messages.success(request, 'You have successfully updated the profile.', 'info')
             return redirect('account:profile', user.username)
         return render(request, self.template_name, {'user':user, 'form':form})
