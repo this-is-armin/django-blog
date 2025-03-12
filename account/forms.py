@@ -33,7 +33,7 @@ class SignUnForm(forms.Form):
             raise ValidationError('Passwords don`t match. Try again.')
         
         if len(p1) < 8 or len(p2) < 8:
-            raise ValidationError('The length or passwords must 8 or longer characters.')
+            raise ValidationError('The length of passwords must be 8 or more characters.')
 
 
 class SignInForm(forms.Form):
