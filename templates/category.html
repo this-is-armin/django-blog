@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} {{ category.name }} {% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/category.css' %}">
+{% endblock %}
+
+{% block content %}
+
+{% if posts %}
+<h2 class="title">Category: {{ category.name }} [{{ category.published_posts_count }}]</h2>
+
+<br>
+<br>
+
+<form action="" method="get" class="search-form">
+    <input type="text" name="search" id="search" placeholder="Search in posts" required>
+    <input type="submit" value="Search">
+</form>
+
+<br><br>
+
+<div class="container">
+    {% for post in page_obj %}
+    <div class="card">
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.description }}</p>
+        <br><hr><br>
+        <a href="{{ post.get_absolute_url }}">Read More</a>
+    </div>
+    {% endfor %}
+</div>
+
+{% include 'incs/pagination.html' %}
+
+{% else %}
+<div class="no__posts">There are no posts at the moment</div>
+{% endif %}
+
+{% endblock %}

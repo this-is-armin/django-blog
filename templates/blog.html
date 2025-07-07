@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Blog {% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+{% endblock %}
+
+{% block content %}
+
+{% if posts %}
+<h2 class="title">Blog Posts</h2>
+
+<br>
+<br>
+
+<form action="" method="get" class="search-form">
+    <input type="text" name="search" id="search" placeholder="Search in posts" required>
+    <input type="submit" value="Search">
+</form>
+
+<br><br>
+
+<div class="container">
+    {% for post in page_obj %}
+    <div class="card">
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.description }}</p>
+        <br><hr><br>
+        <a href="{{ post.category.get_absolute_url }}">Category: {{ post.category }}</a>
+        <br><br><hr><br>
+        <a href="{{ post.get_absolute_url }}">Read More</a>
+    </div>
+    {% endfor %}
+</div>
+
+{% include 'incs/pagination.html' %}
+
+{% else %}
+<div class="no__posts">There are no posts at the moment</div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+<div class="center">
+    <h2>Django Blog</h2>
+    <p><i>This is a Blog has been made with Python and Django</i></p>
+
+    <br><br>
+    
+    <a href="https://www.djangoproject.com">
+        <img src="{% static 'images/django-logo.png' %}" alt="Django Framework Logo" class="django-logo">
+    </a>
+
+    <br><br>
+    
+    <a href="https://www.python.org">
+        <img src="{% static 'images/python-logo.png' %}" alt="Python Logo" class="python-logo">
+    </a>
+</div>
+
+{% endblock %}

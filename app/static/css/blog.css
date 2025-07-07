@@ -1,0 +1,75 @@
+.title {
+    width: fit-content;
+    padding-bottom: 3px;
+    border-bottom: 3px solid black;
+}
+
+.search-form input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+.search-form input[type='submit'] {
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.search-form input[type='submit']:hover {
+    background-color: lightgray;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.card {
+    height: fit-content;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: #e7eaf6;
+}
+
+.card a {
+    padding: 10px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: 0.3s;
+    color: darkviolet;
+}
+
+.card a:hover {
+    color: darkmagenta;
+}
+
+.no__posts {
+    font-size: 1.5rem;
+    text-align: center;
+    color: darkblue;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 1.2rem;
+    }
+
+    .search-form input {
+        padding: 5px;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        font-size: 0.8rem;
+    }
+
+    .no__posts {
+        font-size: 1.2rem;
+    }
+}
